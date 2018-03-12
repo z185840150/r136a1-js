@@ -1,0 +1,52 @@
+{
+  "name": "r136a1",
+  "version": "1.0.0",
+  "description": "hefei parity information technology co. LTD. nodejs express es6 framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vscode",
+    "express",
+    "es6",
+    "restful",
+    "api",
+    "socket",
+    "vue",
+    "admin",
+    "mongoose",
+    "mongodb",
+    "redis",
+    "mvc",
+    "frame",
+    "njs",
+    "node"
+  ],
+  "author": "parity chameleon",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.2",
+    "config": "^1.30.0",
+    "connect-timeout": "^1.9.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-rate-limit": "^2.11.0",
+    "express-validation": "^1.0.2",
+    "helmet": "^3.12.0",
+    "http": "^0.0.0",
+    "http-status": "^1.0.1",
+    "joi": "^13.1.2",
+    "log4js": "^2.5.3",
+    "method-override": "^2.3.10",
+    "moment": "^2.21.0",
+    "mongoose": "^5.0.9",
+    "path": "^0.12.7",
+    "promise-redis": "^0.0.5",
+    "rate-limit-redis": "^1.4.0"
+  }
+}
