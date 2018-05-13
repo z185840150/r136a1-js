@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp dev",
-    "build": "gulp build"
+    "dev": "gulp dev"
   },
   "keywords": [
     "vscode",
@@ -33,7 +32,6 @@
   "author": "parity chameleon",
   "license": "MIT",
   "dependencies": {
-    "@babel/register": "^7.0.0-beta.44",
     "autoprefixer": "^8.1.0",
     "body-parser": "^1.18.2",
     "compression": "^1.7.2",
