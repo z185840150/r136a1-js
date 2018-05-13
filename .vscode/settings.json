@@ -27,5 +27,9 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "node_modules": true
-  }
+  },
+  "npm-intellisense.importES6": true,
+  "npm-intellisense.importQuotes": "'",
+  "npm-intellisense.importLinebreak": ";\r\n",
+  "npm-intellisense.importDeclarationType": "const",
 }

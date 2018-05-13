@@ -13,24 +13,15 @@ const paths = {
   tests: './server/tests/*.js'
 }
 
-// Clean up dist and coverage directory
-gulp.task('clean', () => {
-  del.sync([
-    'dist/**',
-    'dist/.*',
-    'coverage/**',
-    '!dist',
-    '!coverage'
-  ])
-})
-
-// Copy non-js files to dist
+// 清理并覆盖目录
+gulp.task('clean', () => { del.sync(['dist/**', 'dist/.*', 'coverage/**', '!dist', '!coverage']) })
+// 拷贝非 js 文件到输出目录
 gulp.task('copy', () => gulp
   .src(paths.nonJs)
   .pipe(plugins.newer('dist'))
   .pipe(gulp.dest('dist')))
 
-// Compile ES6 to ES5 and copy to dist
+// 转换 es6 到 es5 并拷贝至 dist 目录
 gulp.task('babel', () => gulp
   .src([...paths.es5, '!gulpfile.babel.js'], { base: '.' })
   .pipe(plugins.newer('dist'))
@@ -38,17 +29,16 @@ gulp.task('babel', () => gulp
   .pipe(plugins.babel())
   .pipe(plugins.sourcemaps.write('.', {
     includeContent: false,
-    sourceRoot: file => path
-      .relative(file.path, __dirname)
+    sourceRoot: file => path.relative(file.path, __dirname)
   }))
   .pipe(gulp.dest('dist')))
 
-// Start server with restart on file changes
+// 启动服务器并当文件发生变化是重新启动
 gulp.task('nodemon', ['copy', 'babel'], () => plugins
   .nodemon({
     script: path.join('dist', 'index.js'),
     ext: 'js',
-    ignore: ['node_modules/**/*.js', 'dist/**/*.js'],
+    ignore: ['node_modules/**/*.js', 'dist/**/*.js', 'logs/**'],
     tasks: ['copy', 'babel']
   })
 )
