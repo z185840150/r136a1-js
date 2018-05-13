@@ -2,11 +2,12 @@
   "standard.enable": true,
   "standard.options": {
     "autoFix": true,
-    // 全局变量
     "globals": ["__config", "__sockets", "PORT", "CRAWLER", "__proxys"],
-    // 规则忽略目录
     "ignore": [
-      "node_modules/**"
+      "node_modules/**",
+      "dist/**",
+      "logs/**",
+      "config/**"
     ],
     "parser": "babel-eslint"
   },
@@ -18,5 +19,13 @@
   "editor.tabSize": 2,
   "editor.smoothScrolling": true,
   "editor.minimap.enabled": true,
-  "editor.minimap.showSlider": "always"
+  "editor.minimap.showSlider": "always",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "node_modules": true
+  }
 }
