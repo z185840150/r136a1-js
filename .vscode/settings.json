@@ -1,0 +1,22 @@
+{
+  "standard.enable": true,
+  "standard.options": {
+    "autoFix": true,
+    // 全局变量
+    "globals": ["__config", "__sockets", "PORT", "CRAWLER", "__proxys"],
+    // 规则忽略目录
+    "ignore": [
+      "node_modules/**"
+    ],
+    "parser": "babel-eslint"
+  },
+  "standard.autoFixOnSave": true,
+  "standard.validate": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "editor.tabSize": 2,
+  "editor.smoothScrolling": true,
+  "editor.minimap.enabled": true,
+  "editor.minimap.showSlider": "always"
+}
