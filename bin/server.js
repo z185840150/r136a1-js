@@ -1,12 +1,12 @@
 import config from 'config'
 import http from 'http'
 
+import { logs } from './../lib'
 import app from './app'
 
-import logger from './../lib/logger'
+const conf = config.get('server')
 
 const server = http.createServer(app)
-const serverConfig = config.get('SERVER')
 
 function normalizePort (val) {
   let port = parseInt(val, 10)
@@ -24,9 +24,9 @@ function onError (error) {
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES': logger.error(bind + ' requires elevated privileges')
+    case 'EACCES': logs.error(bind + ' requires elevated privileges')
       process.exit(1)
-    case 'EADDRINUSE': logger.error(bind + ' is already in use')
+    case 'EADDRINUSE': logs.error(bind + ' is already in use')
       process.exit(1)
     default: throw error
   }
@@ -35,15 +35,11 @@ function onError (error) {
 function onListening () {
   let addr = server.address()
   let bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
-  logger.info('Server listening on ' + bind)
+  logs.info('Server listening on ' + bind)
 }
 
 global.__sockets = {}
 
-server.listen(normalizePort(serverConfig.port), serverConfig.host)
+server.listen(normalizePort(conf.port), conf.host)
 server.on('error', onError)
 server.on('listening', onListening)
-
-// require('./../server/modules/crawler/crawler.9188')
-// require('./../server/modules/crawler/com.dszuqiu')
-require('./../server/modules/proxy/cn.ip66')

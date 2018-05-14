@@ -26,7 +26,10 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "node_modules": true
+    "node_modules": true,
+    "dist": true,
+    ".vscode": true,
+    "yarn.lock": true
   },
   "npm-intellisense.importES6": true,
   "npm-intellisense.importQuotes": "'",

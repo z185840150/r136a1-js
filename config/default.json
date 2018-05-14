@@ -1,25 +1,33 @@
 {
-  "SERVER": {
+  "server": {
     "host": "0.0.0.0",
-    "port": "8081"
+    "port": 8081
   },
-  "MONGODB": {
-    "host": "112.74.15.191",
-    "port": "27017",
-    "db": "lottery-data-center",
+  "mongodb": {
+    "host": "127.0.0.1",
+    "port": 27017,
+    "db": "db name",
     "auth": true,
-    "user": "lottery",
-    "pass": "qazxswedc"
+    "user": "root",
+    "password": ""
   },
-  "REDIS": {
-    "host": "112.74.15.191",
+  "redis": {
+    "host": "127.0.0.1",
     "port": 6379,
     "auth": false,
-    "pass": ""
+    "password": "",
+    "options": {}
   },
-  "LOG": {
+  "mysql": {
+    "host": "127.0.0.1",
+    "port": 3379,
+    "auth": true,
+    "user": "root",
+    "password": ""
+  },
+  "log": {
     "appenders": {
-      "console": {"type": "console"},
+      "console": { "type": "console" },
       "app": {
         "type": "dateFile",
         "filename": "./logs/dev_access.log",
