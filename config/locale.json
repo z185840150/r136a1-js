@@ -1,0 +1,8 @@
+{
+  "Muster {{pid}} is running": { "zh": "主线程 {{pid}} 已启动" },
+  "Worker {{pid}} died": { "zh": "子线程 {{pid}} 已死亡" },
+  "Worker {{pid}} started": { "zh": "子线程 {{pid}} 已启动" },
+  "Worker {{pid}} was killed by signal: {{signal}}": { "zh": "子线程 {{pid}} 被结束，信号：{{single}}" },
+  "Worker {{pid}} exited with error code: {{code}}": { "zh": "子线程 {{pid}} 已退出，错误代码：{{code}}" },
+  "Worker {{pid}} success": { "zh": "子线程 {{pid}} 已完成" }
+}

@@ -2,7 +2,7 @@
   "standard.enable": true,
   "standard.options": {
     "autoFix": true,
-    "globals": ["__config", "__sockets", "PORT", "CRAWLER", "__proxys"],
+    "globals": ["__config", "__sockets", "process"],
     "ignore": [
       "node_modules/**",
       "dist/**",
@@ -26,13 +26,6 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "node_modules": true,
-    "dist": true,
-    ".vscode": true,
-    "yarn.lock": true
-  },
-  "npm-intellisense.importES6": true,
-  "npm-intellisense.importQuotes": "'",
-  "npm-intellisense.importLinebreak": ";\r\n",
-  "npm-intellisense.importDeclarationType": "const",
+    "node_modules/**": true
+  }
 }

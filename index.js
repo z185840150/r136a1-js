@@ -1,32 +1,39 @@
-import config from 'config'
-import mongoose from 'mongoose'
+import 'babel-core/register'
+import 'babel-polyfill'
+import './bin/r136a1'
 
-import logs from './lib/logs/logs.lib'
+// import config from 'config'
+// import mongoose from 'mongoose'
 
-import MOD_CONFIG from './server/models/config.model'
+// import logs from './lib/logs/logs.lib'
 
-require('babel-core/register')
-require('babel-polyfill')
+// import MOD_CONFIG from './server/models/config.model'
 
-global.Promise = require('bluebird')
+// require('babel-core/register')
+// require('babel-polyfill')
 
-mongoose.Promise = Promise
+// global.Promise = require('bluebird')
 
-const dbConf = config.get('MONGODB')
-const dbAddr = `mongodb://${dbConf.auth ? `${dbConf.user}:${dbConf.pass}@` : ''}${dbConf.host}:${dbConf.port}/${dbConf.db}`
+// require('./bin/r136a1')
+// import './bin/r136a1'
 
-mongoose.connect(dbAddr, {useMongoClient: true}).then(db => {
-  logs.info('The database connection is successful.')
-  MOD_CONFIG.findOne().then(doc => {
-    if (doc) {
-      logs.info('Server configuration load the success!')
-      global.__config = doc
-      require('./bin/server')
-    } else {
-      logs.error('Server configuration data loss!')
-      process.exit(1)
-    }
-  }).catch(err => { throw err })
-})
+// mongoose.Promise = Promise
 
-mongoose.connection.on('error', () => { throw new Error(`Unable to connect to database: ${dbAddr}`) })
+// const dbConf = config.get('MONGODB')
+// const dbAddr = `mongodb://${dbConf.auth ? `${dbConf.user}:${dbConf.pass}@` : ''}${dbConf.host}:${dbConf.port}/${dbConf.db}`
+
+// mongoose.connect(dbAddr, {useMongoClient: true}).then(db => {
+//   logs.info('The database connection is successful.')
+//   MOD_CONFIG.findOne().then(doc => {
+//     if (doc) {
+//       logs.info('Server configuration load the success!')
+//       global.__config = doc
+//       require('./bin/server')
+//     } else {
+//       logs.error('Server configuration data loss!')
+//       process.exit(1)
+//     }
+//   }).catch(err => { throw err })
+// })
+
+// mongoose.connection.on('error', () => { throw new Error(`Unable to connect to database: ${dbAddr}`) })

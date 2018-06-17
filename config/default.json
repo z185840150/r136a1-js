@@ -1,27 +1,30 @@
 {
   "server": {
     "host": "0.0.0.0",
-    "port": 8081
+    "port": 8081,
+    "config": {
+      "db": "mysql"
+    }
   },
   "mongodb": {
-    "host": "127.0.0.1",
+    "host": "localhost",
     "port": 27017,
-    "db": "db name",
+    "db": "r136a1",
     "auth": true,
     "user": "root",
     "password": ""
   },
   "redis": {
-    "host": "127.0.0.1",
+    "host": "localhost",
     "port": 6379,
     "auth": false,
     "password": "",
     "options": {}
   },
   "mysql": {
-    "host": "127.0.0.1",
-    "port": 3379,
-    "auth": true,
+    "host": "localhost",
+    "port": 3306,
+    "database": "r136a1",
     "user": "root",
     "password": ""
   },

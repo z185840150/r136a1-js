@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp dev",
+    "dev_backup": "gulp dev",
     "build": "gulp build"
   },
   "keywords": [
@@ -33,7 +34,6 @@
   "author": "parity chameleon",
   "license": "MIT",
   "dependencies": {
-    "@babel/register": "^7.0.0-beta.44",
     "autoprefixer": "^8.1.0",
     "body-parser": "^1.18.2",
     "compression": "^1.7.2",
@@ -42,8 +42,9 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "cross-env": "^5.1.4",
+    "enumify": "^1.0.4",
     "es6-promise": "^4.2.4",
-    "express": "^4.16.2",
+    "express": "4.16.3",
     "express-rate-limit": "^2.11.0",
     "express-validation": "^1.0.2",
     "extract-text-webpack-plugin": "^3.0.2",
@@ -51,6 +52,7 @@
     "helmet": "^3.12.0",
     "http": "^0.0.0",
     "http-status": "^1.0.1",
+    "i18n-nodejs": "^3.0.0",
     "joi": "^13.1.2",
     "log4js": "^2.5.3",
     "lru-cache": "^4.1.2",
@@ -58,6 +60,7 @@
     "method-override": "^2.3.10",
     "moment": "^2.21.0",
     "mongoose": "^5.0.9",
+    "mysql": "^2.15.0",
     "path": "^0.12.7",
     "promise-redis": "^0.0.5",
     "rate-limit-redis": "^1.4.0",
@@ -72,7 +75,7 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "@babel/register": "^7.0.0-beta.44",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-add-module-exports": "^0.2.1",
