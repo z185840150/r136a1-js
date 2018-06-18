@@ -5,21 +5,20 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import { createBundleRenderer } from 'vue-server-renderer'
 import express from 'express'
-import ExpressRateLimit from 'express-rate-limit'
+// import ExpressRateLimit from 'express-rate-limit'
 import ExpressValidation from 'express-validation'
 import helmet from 'helmet'
 import httpStatus from 'http-status'
 import LRU from 'lru-cache'
 import methodOverride from 'method-override'
 import path from 'path'
-import RedisStore from 'rate-limit-redis'
+// import RedisStore from 'rate-limit-redis'
 
-import logs from './../lib/logs/logs.lib'
-import redis from './../lib/redis/redis.lib'
+// import { logs, redis } from './../lib'
 
-import routes from '../server/routes/index.route'
+// import routes from './../server/routes/index.route'
 
-import APIError from '../server/helpers/APIError'
+import APIError from './../server/helpers/error/APIError'
 
 const app = express()
 
@@ -45,20 +44,20 @@ app.all('*', (req, res, next) => {
   res.header('X-Powered-By', 'Flower LOTTERY DC API 1.0')
   next()
 })
-__config.server.safe.rate.enable && app.use(new ExpressRateLimit({
-  store: new RedisStore({client: redis}),
-  windowMs: __config.server.safe.rate.windowMs,
-  delayAfter: __config.server.safe.rate.delayAfter,
-  delayMs: __config.server.safe.rate.delayMs,
-  max: __config.server.safe.rate.max,
-  message: '429',
-  onLimitReached: (req, res, options) => {
-    logs.warn(`IP为 ${req.ip} 的客户端短期内大量次数访问 ${req.route.path} 接口`)
-  }
-}))
+// __config.server.safe.rate.enable && app.use(new ExpressRateLimit({
+//   store: new RedisStore({client: redis}),
+//   windowMs: __config.server.safe.rate.windowMs,
+//   delayAfter: __config.server.safe.rate.delayAfter,
+//   delayMs: __config.server.safe.rate.delayMs,
+//   max: __config.server.safe.rate.max,
+//   message: '429',
+//   onLimitReached: (req, res, options) => {
+//     logs.warn(`IP为 ${req.ip} 的客户端短期内大量次数访问 ${req.route.path} 接口`)
+//   }
+// }))
 
 // mount all routes on /api path
-app.use('/api', routes)
+// app.use('/api', routes)
 
 // if error is not an instanceOf APIError, convert it.
 app.use((err, req, res, next) => {

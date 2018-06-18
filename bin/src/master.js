@@ -6,8 +6,8 @@ import { i18n, logs } from '../../lib'
 const { master: log } = logs
 
 log.info(i18n('Muster {{pid}} is running', { pid: process.pid }))
-
-// 循环分叉子线程
+console.log(cluster.workers)
+// fork workers.
 for (let i = 0; i < cpus().length; i++) {
   const worker = cluster.fork()
   const pid = worker.process.pid
@@ -19,7 +19,7 @@ for (let i = 0; i < cpus().length; i++) {
   })
 }
 
-// exit 事件绑定
+// bind cluster exit event.
 cluster.on('exit', (worker, code, signal) => {
   log.warn(i18n('Worker {{pid}} died', { pid: worker.process.pid }))
 })

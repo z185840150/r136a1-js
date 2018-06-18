@@ -61,4 +61,5 @@ typings/
 
 yarn.lock
 test/
+dist/
 logs/

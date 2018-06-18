@@ -1,12 +1,14 @@
 import config from 'config'
 import http from 'http'
 
-import { logs } from './../lib'
+import { i18n, logs } from './../lib'
 import app from './app'
 
 const conf = config.get('server')
 
 const server = http.createServer(app)
+
+const { server: log } = logs
 
 function normalizePort (val) {
   let port = parseInt(val, 10)
@@ -17,7 +19,10 @@ function normalizePort (val) {
   return false
 }
 
-function onError (error) {
+global.__sockets = {}
+
+server.listen(normalizePort(conf.port), conf.host)
+server.on('error', error => {
   if (error.syscall !== 'listen') throw error
 
   let bind = typeof port === 'string' ? `Pipe ${__config.server.port}` : `Port ${__config.server.port}`
@@ -30,16 +35,10 @@ function onError (error) {
       process.exit(1)
     default: throw error
   }
-}
-
-function onListening () {
+})
+server.on('listening', () => {
   let addr = server.address()
   let bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
-  logs.info('Server listening on ' + bind)
-}
-
-global.__sockets = {}
-
-server.listen(normalizePort(conf.port), conf.host)
-server.on('error', onError)
-server.on('listening', onListening)
+  log.info('Server listening on ' + bind)
+  log.info(i18n('Server listening on {{port}}', { port: bind }))
+})

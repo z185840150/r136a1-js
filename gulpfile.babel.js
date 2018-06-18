@@ -16,7 +16,7 @@ const paths = {
 gulp.task('clean', () => del.sync(['dist/**', 'dist/.*', 'coverage/**', '!dist', '!coverage']))
 
 // 拷贝非 js 文件到输出目录
-gulp.task('copy', ['copy:config'], () => gulp.src(paths.nonJs).pipe(plugins.newer('dist')).pipe(gulp.dest('dist')))
+gulp.task('copy', () => gulp.src(paths.nonJs).pipe(plugins.newer('dist')).pipe(gulp.dest('dist')))
 
 // 拷贝 config 目录下 JSON 文件到输出目录
 gulp.task('copy:config', () => gulp.src('./config/*.json').pipe(plugins.newer('dist/config')).pipe(gulp.dest('dist/config')))
@@ -36,7 +36,7 @@ gulp.task('babel', () => {
 })
 
 // 启动服务器并当文件发生变化时重新启动
-gulp.task('nodemon', ['copy', 'babel'], plugins.nodemon({
+gulp.task('nodemon', ['copy', 'copy:config', 'babel'], plugins.nodemon({
   script: path.join('dist', 'index.js'),
   ext: 'js',
   ignore: ['node_modules/**/*.js', 'dist/**/*.js', 'logs/**', 'files/**', 'tests/**', '.vscode/**'],
